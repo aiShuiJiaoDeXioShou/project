@@ -1,0 +1,290 @@
+<template>
+  <div class="root">
+    <div class="wrap">
+      <div class="nav">
+        <div class="btn">
+          <div class="btn-item"></div>
+          <div class="btn-item"></div>
+          <div class="btn-item"></div>
+        </div>
+        <div class="icon">
+          <div class="icon-img">
+            <img
+              src="../assets/icon.png"
+              alt=""
+            />
+          </div>
+          <div class="icon-con">
+            <p>傻逼钢钢：66 lv</p>
+            <el-progress :percentage="50"></el-progress>
+            <p>我仍然无敌于世间</p>
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="tilte">
+          <p>Menu</p>
+        </div>
+
+        <div class="menu">
+          <div class="item" v-for="i in 6" :key="i">
+            <div class="ligth"><i class="fa fa-apple" aria-hidden="true"></i></div>
+            <div class="licon">
+              <span class="iconfont icon-wenjian1"><i class="fa fa-apple" aria-hidden="true"></i></span>
+            </div>
+            <div class="con">Payouts</div>
+            <div class="ricon"></div>
+          </div>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="title">
+          <p>Serer6</p>
+        </div>
+
+        <div class="serve">
+
+          <div class="menu">
+            <div class="item" v-for="i in 6" :key="i">
+              <div class="ligth"><i class="fa fa-cog" aria-hidden="true"></i></div>
+              <div class="licon">
+                <span class="iconfont icon-wenjian1"><i class="fa fa-cog" aria-hidden="true"></i></span>
+              </div>
+              <div class="con">Payouts</div>
+              <div class="ricon"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {};
+  },
+};
+</script>
+
+<style lang='css' scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  /* background: url('../images/bg.jpg') center no-repeat; */
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav {
+  width: 100px;
+  height: 867px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.5s;
+  z-index: 2;
+}
+
+.nav:hover {
+  width: 280px;
+}
+
+.btn {
+  width: 60px;
+  height: 10px;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
+.but-item {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.but-item:nth-child(1) {
+  background: #eb5a56;
+}
+
+.but-item:nth-child(2) {
+  background: #ffc069;
+}
+
+.but-item:nth-child(3) {
+  background: #1890ff;
+}
+
+.icon {
+  width: 250px;
+  height: 60px;
+  margin-left: 25px;
+  margin-top: 20px;
+  display: flex;
+}
+
+.icon-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+.icon-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.icon-con {
+  height: 60px;
+  margin-left: 25px;
+}
+
+.icon-con p {
+  padding-top: 5px;
+}
+
+.icon-con h2 {
+  font-weight: 400;
+}
+
+.line {
+  width: 60px;
+  height: 1px;
+  background: rgba(245, 253, 255, 0.5);
+  margin: 20px 25px;
+  transition: 0.5s;
+}
+
+.nav:hover .line {
+  width: 230px;
+}
+
+.tilte {
+  width: 60px;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+.tilte p {
+  font-size: 14px;
+}
+
+.menu {
+  width: 230px;
+  margin-left: 25px;
+}
+
+.item {
+  display: flex;
+  position: relative;
+  transition: 0.5s;
+  border-radius: 6px;
+}
+
+.item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.licon {
+  width: 60px;
+  height: 50px;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+
+.con {
+  width: 0;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  overflow: hidden;
+  position: relative;
+  left: -20px;
+  opacity: 0;
+}
+
+.nav:hover .con {
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+.ricon {
+  width: 0;
+  height: 50px;
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.nav:hover .ricon {
+  width: 60px;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  opacity: 1;
+}
+
+.iconfont {
+  font-size: 26px;
+}
+
+.ricon .iconfont {
+  font-size: 20px;
+  color: #62cb44;
+}
+
+.ligth {
+  width: 6px;
+  height: 50px;
+  background: #eb5a56;
+  position: absolute;
+  left: -25px;
+  transition: 0.5s;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  opacity: 0;
+}
+
+.item:hover .ligth {
+  opacity: 1;
+}
+
+.serve {
+  width: 60px;
+  background: rgba(0, 0, 0, 0.7);
+  margin-left: 25px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.nav:hover .serve {
+  width: 230px;
+}
+</style>
