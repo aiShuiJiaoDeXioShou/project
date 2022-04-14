@@ -24,4 +24,23 @@ export default {
     width: 100%;
     height: 100%;
 }
+@media (min-aspect-ratio:16/9) {
+    .video-bg{
+        height: auto;
+        width: 100%;
+    }
+}
+@media (max-aspect-ratio:16/9) {
+    .video-bg{
+        width: auto;
+        height: 100%;
+    }
+}
+/* 在手机上替换成图片 */
+/* @media (max-width:767px){ */
+  /* .video-bg{ */
+        /* display: none; */
+  /* } */
+/* 这里写替换图片的代码 */
+/* } */
 </style>

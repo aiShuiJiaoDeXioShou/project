@@ -66,7 +66,7 @@ export default {
 .space {
   width: 100%;
   height: 100vh;
-  background: rgba(255, 192, 105, 0.15);
+  background: rgba(255, 192, 105,0.1);
 }
 
 .planet {

@@ -26,31 +26,31 @@
         </div>
 
         <div class="menu">
-          <div class="item" v-for="i in 6" :key="i">
-            <div class="ligth"><i class="fa fa-apple" aria-hidden="true"></i></div>
+          <div class="item" v-for="(item,index) in memu_data" :key="index">
+            <div class="ligth"><i :class="item.icon" aria-hidden="true"></i></div>
             <div class="licon">
-              <span class="iconfont icon-wenjian1"><i class="fa fa-apple" aria-hidden="true"></i></span>
+              <span class="iconfont icon-wenjian1"><i :class="item.icon" aria-hidden="true"></i></span>
             </div>
-            <div class="con">Payouts</div>
+            <div class="con">{{item.title}}</div>
             <div class="ricon"></div>
           </div>
         </div>
 
         <div class="line"></div>
 
-        <div class="title">
-          <p>Serer6</p>
+        <div class="title" style="padding-left: 30px;">
+          <p>Serve</p>
         </div>
 
         <div class="serve">
 
           <div class="menu">
-            <div class="item" v-for="i in 6" :key="i">
-              <div class="ligth"><i class="fa fa-cog" aria-hidden="true"></i></div>
+            <div class="item" v-for="(item,i) in serve" :key="i">
+              <div class="ligth"><i :class="item.icon" aria-hidden="true"></i></div>
               <div class="licon">
-                <span class="iconfont icon-wenjian1"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                <span class="iconfont icon-wenjian1"><i :class="item.icon" aria-hidden="true"></i></span>
               </div>
-              <div class="con">Payouts</div>
+              <div class="con">{{item.title}}</div>
               <div class="ricon"></div>
             </div>
           </div>
@@ -65,7 +65,48 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      memu_data:[
+        {
+          "title": "首页",
+          "icon": "fa fa-address-card-o",
+        },
+        {
+          "title": "GitHub开源项目",
+          "icon": "fa fa-github",
+        },
+        {
+          "title": "博客论文",
+          "icon": "fa fa-tree",
+        },
+         {
+          "title": "小说作品",
+          "icon": "fa fa-book",
+        },
+        {
+          "title": "个人游戏作品",
+          "icon": "fa fa-steam",
+        },
+        {
+          "title": "网站源码",
+          "icon": "fa fa-code",
+        },
+      ],
+      serve:[
+        {
+          "title": "设置",
+          "icon": "fa fa-cog",
+        },
+        {
+          "title": "写作",
+          "icon": "fa fa-pencil-square-o",
+        },
+        {
+          "title": "帮助",
+          "icon": "fa fa-question-circle",
+        },
+      ]
+    };
   },
 };
 </script>
@@ -190,6 +231,7 @@ export default {
 .menu {
   width: 230px;
   margin-left: 25px;
+  cursor: pointer;
 }
 
 .item {
@@ -282,6 +324,7 @@ export default {
   border-radius: 10px;
   overflow: hidden;
   transition: 0.5s;
+  margin-top:20px ;
 }
 
 .nav:hover .serve {

@@ -9,23 +9,15 @@
       :options="options"
       :rePlay="true"
     />
-
-    <div class="touxian">
-      <el-dropdown>
-        <el-avatar class="head-portrait" shape="circle" :size="size" :src="squareUrl"></el-avatar><br />
-        <div style="color">桂钢的个人博客</div>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item :disabled="true" >登入</el-dropdown-item> 
-          <el-dropdown-item v-if="isExistence">注册</el-dropdown-item>
-          <el-dropdown-item divided>退出登陆</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+    <div class="cartmenu">
+     <CardMenu></CardMenu>
     </div>
   </div>
 </template>
 
 <script>
 import VueAliplayerV2 from "vue-aliplayer-v2";
+import CardMenu from "./CardMenu.vue";
 export default {
   data() {
     return {
@@ -40,9 +32,10 @@ export default {
       isExistence: false,
     };
   },
-  components:{
-      VueAliplayerV2,
-  }
+  components: {
+    VueAliplayerV2,
+    CardMenu
+  },
 };
 </script>
 
@@ -55,39 +48,30 @@ export default {
   position: relative;
   width: 710px;
   height: 300px;
-  margin-left:5px ;
+  margin-left: 5px;
 }
-.my-video{
+.my-video {
   border-radius: 5px;
   border: 1px #ffff solid;
 }
-.touxian {
+.cartmenu{
   position: absolute;
-  top: 105px;
-  /* top: -65px; */
-  /* left: 0;
-  right: 0;
-  bottom: 0; */
+  top: 457px;
+  right: 487px;
+  bottom: 0;
   margin: auto;
   width: 200px;
   height: 250px;
   text-align: center;
   z-index: 2;
 }
-.touxian:hover .head-portrait{
-  animation: turnX 1s infinite;
-  animation-iteration-count:1;
-  animation-fill-mode: forwards;
-}
-@keyframes turnX{
-
-  0%{
-    transform:rotateY(0deg);
+@keyframes turnX {
+  0% {
+    transform: rotateY(0deg);
   }
 
-  100%{
-    transform:rotateY(180deg) translate(0px, -10px);
+  100% {
+    transform: rotateY(180deg) translate(0px, -10px);
   }
-
 }
 </style>

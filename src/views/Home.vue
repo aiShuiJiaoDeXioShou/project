@@ -137,6 +137,7 @@ export default {
     },
     show_music() {
       this.music_show = !this.music_show;
+      
     },
   },
 };
