@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信封特效</title>
+    <style>
+         body{
+            background: linear-gradient(135deg,#17ead9,#6078ea);
+        }
+        *{
+            padding:0;
+            margin:0;
+            list-style: none;
+        }
+        .envelope{
+            width: 400px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            margin: 400px auto;
+            transition: all 2s;
+            padding: 10px;
+        }
+        .body{
+            width: 400px;
+            height: 0px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.5s;
+        }
+        .img-box{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: -3;
+        }
+        .img-box img{
+            width: 100%;
+            height: 100%;
+            border-radius: 5%;
+        }
+        .envelope .color-bar{
+            width: 120%;
+            transform: translateX(-8%);
+            height: 5px;
+            margin-bottom: 1px;
+            border-radius: 3px;
+        }
+        .envelope .color-bar:nth-child(1){
+            background: linear-gradient(135deg,#fce38a,#f38181);
+        }
+        .envelope .color-bar:nth-child(2){
+            background: linear-gradient(135deg,#f54ea2,#ff7676);
+        }
+        .envelope .color-bar:nth-child(3){
+            background: linear-gradient(135deg,#622774,#c53364);
+        }
+        .envelope .color-bar:nth-child(4){
+            background: linear-gradient(135deg,#622774,#c53364);
+        }
+        .envelope .color-bar:nth-child(5){
+            background: linear-gradient(135deg,#65799b,#5e2563);
+        }
+        .envelope .color-bar:nth-child(6){
+            background: linear-gradient(135deg,#184e68,#57ca85);
+        }
+        .envelope-icon{
+            position: absolute;
+            top: -8%;
+            left: 40%;
+            z-index: 2;
+        }
+        .envelope-icon:hover{
+            color: #fff;
+            cursor: pointer;
+        }
+        .color-horizontal-bar{
+            height: 60px;
+            width: 5px;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background: #17ead9;
+            margin-left: 5px;
+            z-index: 3;
+            transition: all .5s;
+        }
+        #span1{
+            background: #fff;
+            left: -20px;
+        }
+        .color-horizontal-bar2{
+            height: 60px;
+            width: 5px;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #17ead9;
+            margin-left: 5px;
+            z-index: 3;
+            transition: all .5s;
+        }
+        #span2{
+            background: #6078ea;
+            top: -10px;
+            right: -20px;
+        }
+        .envelope:hover .color-horizontal-bar{
+            transform: rotate(-45deg);
+            transition: all .5s;
+        }
+        .envelope:hover #span1{
+            transform: rotate(45deg);
+            transition: all .5s;
+        }
+
+        .envelope:hover .color-horizontal-bar2{
+            transform: rotate(45deg);
+            transition: all .5s;
+        }
+        .envelope:hover #span2{
+            transform: rotate(-45deg);
+            transition: all .5s;
+        }
+        .envelope:hover .body{
+            height: 400px;
+            transition: all .5s;
+        }
+        .envelope:hover{
+            transform: translateY(-400px);
+            transition: all 2s;
+            height: 400px;
+        }
+        .text-div .name{
+            font-size: larger;
+            color: #fff;
+
+        }
+        .text-div div{
+            margin-bottom: 10px;
+            padding: 10px;
+            border-bottom:1px solid #fff;
+        }
+        .text-div .data{
+            font-size: medium;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="envelope">
+        <h1>
+            <i class="envelope-icon">图标</i>
+            <div class="color-bar"></div>
+            <div class="color-bar"></div>
+            <div class="color-bar"></div>
+            <div class="color-bar"></div>
+            <div class="color-bar"></div>
+            <div class="color-bar"></div>
+            <div class="color-horizontal-bar"></div>
+            <div id="span1" class="color-horizontal-bar"></div>
+            <div class="color-horizontal-bar2"></div>
+            <div id="span2" class="color-horizontal-bar2"></div>
+        </h1>
+        <div class="body">
+            <div class="text-div">
+                <div>
+                    <span class="name">这个是名</span>
+                    <span> : </span>
+                    <span class="data">发士大夫士大夫胜多负少</span>
+                </div>
+                <div>
+                    <span class="name">这个是名</span>
+                    <span> : </span>
+                    <span class="data">发士大夫士大夫胜多负少</span>
+                </div>
+                <div>
+                    <span class="name">这个是名</span>
+                    <span> : </span>
+                    <span class="data">发士大夫士大夫胜多负少</span>
+                </div>
+            </div>
+            <div class="operation">
+                <ul>
+                    <li>
+                        <a href="#"><i></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i></i></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="img-box">
+                <img src="C:\Users\有天道\Pictures\Saved Pictures\heilishi.jpeg" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

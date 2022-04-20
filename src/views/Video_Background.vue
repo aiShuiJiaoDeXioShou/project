@@ -2,15 +2,17 @@
 <template>
   <div>
       <video class="video-bg" autoplay muted loop>
-          <source src="http://localhost:8080/hutao2.mp4" type="video/mp4">
+          <source :src="videoUrl" type="video/mp4">
       </video>
   </div>
 </template>
 
 <script>
+import url from "../tools/Url"
 export default {
   data () {
     return {
+      videoUrl: url.URL.lib+"hutao2.mp4"
     }
   }
 }
@@ -24,6 +26,7 @@ export default {
     width: 100%;
     height: 100%;
 }
+
 @media (min-aspect-ratio:16/9) {
     .video-bg{
         height: auto;
