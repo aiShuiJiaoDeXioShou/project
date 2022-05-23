@@ -1,5 +1,5 @@
 <template>
-  <div class="root">
+  <div class="menus-root">
     <div class="wrap">
       <div class="nav">
         <div class="btn">
@@ -9,13 +9,10 @@
         </div>
         <div class="icon">
           <div class="icon-img">
-            <img
-              src="../assets/icon.png"
-              alt=""
-            />
+            <img src="../../assets/icon.png" alt="" />
           </div>
           <div class="icon-con">
-            <p>傻逼钢钢：66 lv</p>
+            <p>傻逼钢钢: 66 lv</p>
             <el-progress :percentage="50"></el-progress>
             <p>我仍然无敌于世间</p>
           </div>
@@ -26,37 +23,42 @@
         </div>
 
         <div class="menu">
-          <div class="item" v-for="(item,index) in memu_data" :key="index">
-            <div class="ligth"><i :class="item.icon" aria-hidden="true"></i></div>
+          <div class="item" v-for="(item, index) in memu_data" :key="index">
+            <div class="ligth">
+              <i :class="item.icon" aria-hidden="true"></i>
+            </div>
             <div class="licon">
               <span class="iconfont icon-wenjian1"><i :class="item.icon" aria-hidden="true"></i></span>
             </div>
-            <div class="con">{{item.title}}</div>
+            <div class="con">
+              <a style="text-decoration: none" @click="selectMenu(item.address)">{{ item.title }}</a>
+            </div>
             <div class="ricon"></div>
           </div>
         </div>
 
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
         <div class="line"></div>
 
-        <div class="title" style="padding-left: 30px;">
+        <div class="title" style="padding-left: 30px">
           <p>Serve</p>
         </div>
 
         <div class="serve">
-
           <div class="menu">
-            <div class="item" v-for="(item,i) in serve" :key="i">
-              <div class="ligth"><i :class="item.icon" aria-hidden="true"></i></div>
+            <div class="item" v-for="(item, i) in serve" :key="i">
+              <div class="ligth">
+                <i :class="item.icon" aria-hidden="true"></i>
+              </div>
               <div class="licon">
                 <span class="iconfont icon-wenjian1"><i :class="item.icon" aria-hidden="true"></i></span>
               </div>
-              <div class="con">{{item.title}}</div>
+              <div class="con">{{ item.title }}</div>
               <div class="ricon"></div>
             </div>
           </div>
-
         </div>
-
       </div>
     </div>
   </div>
@@ -66,52 +68,65 @@
 export default {
   data() {
     return {
-      memu_data:[
+      memu_data: [
         {
-          "title": "首页",
-          "icon": "fa fa-address-card-o",
+          title: "首页",
+          icon: "fa fa-address-card-o",
+          address: "#a-home",
         },
         {
-          "title": "GitHub开源项目",
-          "icon": "fa fa-github",
+          title: "GitHub开源项目",
+          icon: "fa fa-github",
+          address: "#a-project",
         },
         {
-          "title": "博客论文",
-          "icon": "fa fa-tree",
-        },
-         {
-          "title": "小说作品",
-          "icon": "fa fa-book",
+          title: "博客论文",
+          icon: "fa fa-tree",
+          address: "#a-blog",
         },
         {
-          "title": "个人游戏作品",
-          "icon": "fa fa-steam",
+          title: "小说作品",
+          icon: "fa fa-book",
+          address: "#a-blog",
         },
         {
-          "title": "网站源码",
-          "icon": "fa fa-code",
+          title: "个人游戏作品",
+          icon: "fa fa-steam",
+          address: "#a-blog",
+        },
+        {
+          title: "网站源码",
+          icon: "fa fa-code",
+          address: "#a-blog",
         },
       ],
-      serve:[
+      serve: [
         {
-          "title": "设置",
-          "icon": "fa fa-cog",
+          title: "设置",
+          icon: "fa fa-cog",
         },
         {
-          "title": "写作",
-          "icon": "fa fa-pencil-square-o",
+          title: "写作",
+          icon: "fa fa-pencil-square-o",
         },
         {
-          "title": "帮助",
-          "icon": "fa fa-question-circle",
+          title: "帮助",
+          icon: "fa fa-question-circle",
         },
-      ]
+      ],
     };
+  },
+  methods: {
+    selectMenu(item) {
+      console.log(item);
+      const returnEle = document.querySelector(item);
+      returnEle.scrollIntoView({block: "start", behavior: "smooth"});
+    },
   },
 };
 </script>
 
-<style lang='css' scoped>
+<style lang="css" scoped>
 * {
   margin: 0;
   padding: 0;
@@ -324,7 +339,7 @@ export default {
   border-radius: 10px;
   overflow: hidden;
   transition: 0.5s;
-  margin-top:20px ;
+  margin-top: 20px;
 }
 
 .nav:hover .serve {

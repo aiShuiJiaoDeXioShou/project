@@ -26,7 +26,7 @@ export default {
         // format: 'm3u8'  //切换为直播流的时候必填
       },
       source: "http://localhost:8080/hutao2.mp4",
-      squareUrl: require("../assets/icon.png"),
+      squareUrl: require("../../assets/icon.png"),
       size: 100,
       userName: "桂钢的个人博客",
       isExistence: false,

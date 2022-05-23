@@ -42,31 +42,35 @@ export default {
       let zuob2 = Math.random();
       star.className = cssnum[Math.floor(zuob * cssnum.length)];
       if (zuob2 > 0.5) {
-        star.style.top = zuob * 100;
-        star.style.left = zuob * 100;
+        star.style.top = (zuob * 400)+'px';
+        star.style.left = (zuob * 1000)+'px';
       } else {
-        star.style.top = zuob * -1000;
-        star.style.left = zuob * -1000;
+        star.style.top = (zuob * 400)+'px';
+        star.style.right = (zuob * 400)+'px';
       }
 
       stars.appendChild(star);
     },
   },
   mounted() {
-    //异步循环一百次
-    setTimeout(() => {
-      for (let i = 0; i < 100; i++) {
+    new Promise(() => {
+      //异步循环一百次
+      for (let i = 0; i < 40; i++) {
         this.stars();
       }
-    }, 1000);
+    });
   },
 };
 </script>
 <style lang="css">
+.stars{
+  width: 1920px;
+  height: 1080px;
+}
 .space {
   width: 100%;
   height: 100vh;
-  background: rgba(255, 192, 105,0.1);
+  background: rgba(255, 192, 105, 0.1);
 }
 
 .planet {

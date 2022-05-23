@@ -82,7 +82,7 @@
 export default {
   data() {
     return {
-      squareUrl: require("../assets/icon.png"),
+      squareUrl: require("../../assets/icon.png"),
       size: 100,
       userName: "桂钢的个人博客",
       isExistence: false,

@@ -1,6 +1,6 @@
 <template>
   <div class="home" @mousewheel="wheel()">
-    <div class="top">
+    <div class="top" >
       <div class="progress">
         <el-progress
           :percentage="Math.floor(speed * 100)"
@@ -12,12 +12,12 @@
 
     <el-row class="content-core">
       <el-col :span="6">
-        <div class=".menu">
+        <div  class="menu">
           <menus></menus>
         </div>
       </el-col>
 
-      <el-col :span="16">
+      <el-col :span="16" :offset="6" id="a-home">
         <!-- 这个是主题视频 -->
         <Video></Video><br /><br />
         <el-collapse accordion style="padding: 10px;">
@@ -35,19 +35,13 @@
         </el-collapse>
 
         <!-- 这个介绍自己的一些项目的地方 -->
-        <el-row class="card-dev">
-          <el-col :span="8">
-            <card></card>
-          </el-col>
-          <el-col :span="8">
-            <card></card>
-          </el-col>
-          <el-col :span="8">
-            <card></card>
+        <el-row class="card-dev" :gutter="10" id="a-project">
+          <el-col :span="8" v-for="(item,index) in git_hub_data" :key="index" style="margin-top: 10px">
+            <card :git_hub_project="item"></card>
           </el-col>
         </el-row>
 
-        <el-collapse accordion class="text-tilte" style="padding: 10px;">
+        <el-collapse accordion class="text-tilte" style="padding: 10px;" id="a-blog">
           <el-collapse-item>
             <template slot="title">
               下面是一些自己编写的个人博客，文章<i
@@ -82,8 +76,7 @@
         }"
       ></Music>
       <div class="music-show">
-        <i><i class="fa fa-music" @click="show_music" aria-hidden="true"></i
-        ></i>
+        <i><i class="fa fa-music" @click="show_music" aria-hidden="true"></i></i>
       </div>
     </div>
     <video2 class="bg-hutao" v-if="true"></video2>
@@ -92,14 +85,15 @@
 </template>
 
 <script>
-import Menus from "./Menus.vue";
-import Video from "./Video.vue";
-import Card from "./Card.vue";
-import Top from "./Top.vue";
-import Article from "./Article.vue";
-import Music from "./Music.vue";
-import Liuxinyu from "./Liuxinyu.vue"
-import video2 from "./Video_Background.vue";
+import Axios from "axios";
+import Menus from "../views/home/Menus.vue";
+import Video from "../views/home/Video.vue";
+import Card from "../views/home/Card.vue";
+import Top from "../views/home/Top.vue";
+import Article from "../views/home/Article.vue";
+import Music from "../views/home/Music.vue";
+import Liuxinyu from "../views/home/Liuxinyu.vue"
+import video2 from "../views/home/Video_Background.vue";
 
 export default {
   name: "Home",
@@ -107,7 +101,16 @@ export default {
     return {
       speed: 0,
       music_show: false,
+      git_hub_data:[]
     };
+  },
+  mounted(){
+    Axios({
+      method:'get',
+      url:this.$url.URL.gitHubApi+'repos',
+    }).then(res => {
+      this.git_hub_data = res.data
+    })
   },
   components: {
     Menus,
@@ -137,13 +140,17 @@ export default {
     },
     show_music() {
       this.music_show = !this.music_show;
-      
+
     },
   },
 };
 </script>
 
 <style lang="css" scope>
+.menu{
+  left: 75px;
+  position: fixed;
+}
 .bg-hutao{
   position: fixed;
   top: 0;

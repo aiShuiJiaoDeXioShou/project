@@ -3,24 +3,24 @@
   <div>
     <div class="card">
       <div class="imgBox">
-        <img src="../assets/icon.png" />
+        <img :src="img_url" />
       </div>
 
       <br /><br /><br /><br /><br /><br />
       <div class="content">
         <div class="details">
           <h2>
-            你是个女孩 <br />
-            <br /><span>你是一个坏女孩</span>
+            {{git_hub_project.name}} <br />
+            <br /><span>{{git_hub_project.language}}</span>
           </h2>
         </div>
       </div>
       <p>
-       要实现旋转动画需要用到transform属性中rotate ()来设置，可以在X轴方向，Y轴方向，Z轴方向上进行旋转。 在代码中指定旋转方向。 这次的起点是0度，终点是360度（一次旋转），向X轴方向指定旋转。 然后利用鼠标悬停让图片旋转。 animation-duration是动画处理的时间，animation-iteration-count是动画处理的次数。 基本与X轴的旋转几乎相同。 仅旋转更改为Y轴方向的旋转。 将鼠标悬停在图像上时，它会沿Y轴方向旋转，效果如下： 也基本与X轴的旋转几乎相同。 仅更改旋转到Z轴方向的旋转
+        {{git_hub_project.description}}
       </p>
       <ul class="sci" id="sci">
         <li>
-          <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
+          <a target="_blank" :href="git_hub_project.html_url"><i class="fa fa-github" aria-hidden="true"></i></a>
         </li>
         <li>
           <a href="#"><i class="fa fa-qq" aria-hidden="true"></i></a>
@@ -35,8 +35,13 @@
 
 <script>
 export default {
+  props:{
+    git_hub_project:{}
+  },
   data() {
-    return {};
+    return {
+      img_url:"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fediterupload.eepw.com.cn%2F201907%2F1564455304668232.png&refer=http%3A%2F%2Fediterupload.eepw.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1653060417&t=b41114c4c44fdbfda0fcad7af7c0bbc7"
+    };
   },
 };
 </script>
@@ -46,7 +51,6 @@ export default {
   position: relative;
   width: 275px;
   height: 400px;
-  background: #ffff;
   box-shadow: 0 15px 25px rgb(0, 0, 0, 0.1);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.1);
@@ -77,13 +81,15 @@ export default {
   overflow: hidden;
   /* 对溢出的文本做省略号处理 */
   text-overflow: ellipsis;
+  transition: all 1.5s;
 }
 
 .card:hover {
   /*  animation: turnX 1.5s infinite;
   animation-iteration-count:1;
   animation-fill-mode: forwards; */
-  transform: rotateY(180deg) translate(0px, -10px);
+  transform: rotateY(180deg) translate(0px, -40px);
+  transition: all 1.5s;
 }
 .card:hover div {
   opacity: 0;

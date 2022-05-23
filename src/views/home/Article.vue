@@ -3,7 +3,7 @@
   <div class="root">
     <div class="card">
       <div class="imgBox">
-        <img src="../assets/icon.png" alt="" />
+        <img src="../../assets/icon.png" alt="" />
       </div>
       <div class="content">
         <h2>可申缩卡片1</h2>
@@ -29,7 +29,7 @@
               </div>
               <i slot="reference" class="el-icon-delete"></i>
             </el-popover>
-          
+
           </el-col>
           <el-col :span="8">
             <el-popover

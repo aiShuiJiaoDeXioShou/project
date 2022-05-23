@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import url from "../tools/Url"
+import url from "../../tools/Url"
 export default {
   data () {
     return {
