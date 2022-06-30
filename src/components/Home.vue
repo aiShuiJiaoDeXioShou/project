@@ -94,6 +94,7 @@ import Article from "../views/home/Article.vue";
 import Music from "../views/home/Music.vue";
 import Liuxinyu from "../views/home/Liuxinyu.vue"
 import video2 from "../views/home/Video_Background.vue";
+import Cookie from 'js-cookie'
 
 export default {
   name: "Home",
@@ -107,7 +108,7 @@ export default {
   mounted(){
     Axios({
       method:'get',
-      url:this.$url.URL.gitHubApi+'repos',
+      url:this.$url.gitHubApi+'repos',
     }).then(res => {
       this.git_hub_data = res.data
     })

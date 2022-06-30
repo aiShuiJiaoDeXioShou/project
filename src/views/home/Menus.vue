@@ -8,8 +8,8 @@
           <div class="btn-item"></div>
         </div>
         <div class="icon">
-          <div class="icon-img">
-            <img src="../../assets/icon.png" alt="" />
+          <div class="icon-img" @click="own()">
+            <img src="../../assets/icon.png"/>
           </div>
           <div class="icon-con">
             <p>傻逼钢钢: 66 lv</p>
@@ -54,7 +54,7 @@
               <div class="licon">
                 <span class="iconfont icon-wenjian1"><i :class="item.icon" aria-hidden="true"></i></span>
               </div>
-              <div class="con">{{ item.title }}</div>
+              <div class="con" @click="settingClik(item.title)">{{ item.title }}</div>
               <div class="ricon"></div>
             </div>
           </div>
@@ -122,6 +122,21 @@ export default {
       const returnEle = document.querySelector(item);
       returnEle.scrollIntoView({block: "start", behavior: "smooth"});
     },
+    settingClik(item){
+      console.log(item);
+      if(item === "设置"){
+        // this.$router.push({name: "setting"});
+      }else if(item === "写作"){
+         let routeUrl = this.$router.resolve({name: "edit",path:"/edit"});
+         window.open(routeUrl.href, '_blank');
+      }else if(item === "帮助"){
+
+      }
+    },
+    own(){
+      let routeUrl = this.$router.resolve({path:'/own'});
+      window.open(routeUrl.href, '_blank');
+    }
   },
 };
 </script>
@@ -197,6 +212,14 @@ export default {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  /* 鼠标移动到该位置改变光标样式 
+  Syntax: [ [ <url> [ <x> <y> ]? , ]*
+   [ auto | default | none | context-menu 
+   | help | pointer | progress | wait 
+   | cell | crosshair | text | vertical-text
+   | alias | copy |
+  */
+  cursor: pointer;
   border: 4px solid rgba(255, 255, 255, 0.3);
   overflow: hidden;
 }
